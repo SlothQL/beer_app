@@ -4,6 +4,7 @@
     <div>
       <beer-select :beers='beers'></beer-select>
       <beer-detail :beer="selectedBeer"></beer-detail>
+      <h3>List of Favourite Beers:</h3>
       <list-favourite-beers :favouriteBeers="favouriteBeers"></list-favourite-beers>
     </div>
   </div>
@@ -34,6 +35,9 @@ export default {
       this.selectedBeer = beer;
     }),
     eventBus.$on('favourite-beer', (beer) => {
+      if (this.favouriteBeers.includes(beer)) {
+        return
+      };
       this.favouriteBeers.push(beer);
     })
   },

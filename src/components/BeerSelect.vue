@@ -35,7 +35,9 @@ export default {
 
 <style scoped>
 .show {
-   background-color: green ;
+   background-color: black ;
+   color: white;
+   font-weight: bold;
  }
 
  .not-show {
