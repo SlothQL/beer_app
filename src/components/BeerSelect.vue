@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import {eventBus} from '@/main.js';
+
 export default {
     name: 'beer-select',
     data() {
@@ -14,7 +16,12 @@ export default {
             beer: {}
         }
     },
-    props: ['beers']
+    props: ['beers'],
+    methods: {
+        handleSelect() {
+            eventBus.$emit('selected-beer', this.beer)
+        }
+    }
 }
 </script>
 

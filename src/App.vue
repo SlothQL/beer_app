@@ -8,12 +8,14 @@
 </template>
 
 <script>
+import {eventBus} from '@/main.js';
 import BeerSelect from './components/BeerSelect.vue';
 export default {
   name: 'app',
   data() {
     return {
-      beers: []
+      beers: [],
+      selectedBeer: null
     };
   },
 
@@ -22,6 +24,10 @@ export default {
     .then(response => response.json())
     .then(data => this.beers = data)
     .catch(err => console.log(err))
+
+    eventBus.$on('selected-beer', (beer) => {
+      this.selectedBeer = beer;
+    })
   },
 
   components: {
