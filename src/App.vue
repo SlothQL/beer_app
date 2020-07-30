@@ -35,11 +35,15 @@ export default {
       this.selectedBeer = beer;
     }),
     eventBus.$on('favourite-beer', (beer) => {
-      if (this.favouriteBeers.includes(beer)) {
-        return
-      };
-      this.favouriteBeers.push(beer);
+      if (!this.checkIfExist) {
+      this.favouriteBeers.push(beer)};
     })
+  },
+
+  computed: {
+    checkIfExist: function() {
+      return this.favouriteBeers.includes(this.selectedBeer);
+    }
   },
 
   components: {
