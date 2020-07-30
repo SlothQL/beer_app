@@ -3,7 +3,7 @@
       <h2>Name: {{ beer.name }}</h2>
       <p>Description: {{ beer.description }}</p>
       <p>Brewers Tips: {{ beer.brewers_tips }}</p>
-      <img :src="beer.image_url"/>
+      <img class="img" :src="beer.image_url"/>
   </div>
 </template>
 
@@ -14,6 +14,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+ .img {
+     height: 200px;
+ }
 </style>

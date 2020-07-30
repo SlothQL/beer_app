@@ -1,8 +1,11 @@
 <template>
   <div>
+      <div>
       <select v-model="beer" v-on:change="handleSelect">
           <option v-for="beer in beers" :beer="beer" :key="beer.id" v-bind:value="beer"> {{ beer.name }} </option>
       </select>
+      </div>
+      <button v-on:click="addToFavourites" v-bind:class="Object.keys(beer).length > 0 ? 'show' : 'not-show'">Add to Favourites</button>
   </div>
 </template>
 
@@ -13,18 +16,30 @@ export default {
     name: 'beer-select',
     data() {
         return {
-            beer: {}
+            beer: {},
+            favouriteBeer: {}
         }
     },
     props: ['beers'],
     methods: {
         handleSelect() {
             eventBus.$emit('selected-beer', this.beer)
+        },
+        addToFavourites() {
+            this.favouriteBeer = this.beer;
+            eventBus.$emit('favourite-beer', this.favouriteBeer)
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
+.show {
+   background-color: green ;
+ }
+
+ .not-show {
+   display: none;
+ }
 
 </style>
