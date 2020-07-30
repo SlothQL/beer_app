@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Beers</h1>
+    <h1>Beers of the world</h1>
     <div>
       <beer-select :beers='beers'></beer-select>
       <beer-detail :beer="selectedBeer"></beer-detail>
@@ -55,5 +55,9 @@ export default {
 </script>
 
 <style>
- 
+  body {
+    background-color: burlywood;
+    margin-left: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
 </style>

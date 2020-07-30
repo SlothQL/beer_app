@@ -1,6 +1,6 @@
 <template>
   <div>
-      <ul>
+      <ul class="list">
           <li v-for="beer in favouriteBeers" :favouriteBeer="beer" :key="beer.id">{{beer.name}}</li>
       </ul>
   </div>
@@ -13,6 +13,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    .list {
+        list-style: none;
+    }
 </style>

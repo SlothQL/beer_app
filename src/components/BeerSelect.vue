@@ -38,6 +38,14 @@ export default {
    background-color: black ;
    color: white;
    font-weight: bold;
+   margin: 20px 0px;
+   padding: 5px;
+   border: none;
+   border-radius: 5%;
+ }
+
+ .show:hover {
+     background-color: rgb(53, 52, 52) ;
  }
 
  .not-show {
